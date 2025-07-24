@@ -23,4 +23,5 @@ npm install husky --save-dev
 npx husky-init
 npm install
 npx husky add .husky/pre-commit "npx lint-staged"
+chmod +x .husky/pre-commit
 ```
