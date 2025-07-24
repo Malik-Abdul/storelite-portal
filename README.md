@@ -15,3 +15,11 @@ Install
 npm install --save-dev eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-plugin-react-x eslint-plugin-react-dom typescript
 
 ```
+
+### Husky
+
+```bash
+npm install --save-dev husky lint-staged
+npx husky install
+npx husky add .husky/pre-commit "npx lint-staged"
+```
