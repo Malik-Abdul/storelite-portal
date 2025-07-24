@@ -19,7 +19,8 @@ npm install --save-dev eslint @typescript-eslint/parser @typescript-eslint/eslin
 ### Husky
 
 ```bash
-npm install --save-dev husky lint-staged
-npx husky install
+npm install husky --save-dev
+npx husky-init
+npm install
 npx husky add .husky/pre-commit "npx lint-staged"
 ```
