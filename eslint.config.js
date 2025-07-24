@@ -1,23 +1,41 @@
-import js from '@eslint/js'
-import globals from 'globals'
-import reactHooks from 'eslint-plugin-react-hooks'
-import reactRefresh from 'eslint-plugin-react-refresh'
-import tseslint from 'typescript-eslint'
-import { globalIgnores } from 'eslint/config'
+import "dotenv/config";
+import tseslint from "typescript-eslint";
+import reactX from "eslint-plugin-react-x";
+import reactDOM from "eslint-plugin-react-dom";
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      js.configs.recommended,
-      tseslint.configs.recommended,
-      reactHooks.configs['recommended-latest'],
-      reactRefresh.configs.vite,
-    ],
-    languageOptions: {
-      ecmaVersion: 2020,
-      globals: globals.browser,
+// const useStrictTyping = true;
+const useStrictTyping = process.env.STRICT_TYPING === "true";
+
+const baseRules = {
+  ...(reactX.configs.recommended?.rules ?? {}),
+};
+
+if (useStrictTyping) {
+  Object.assign(baseRules, reactDOM.configs.recommended?.rules ?? {});
+  baseRules["react-dom/no-missing-button-type"] = "warn";
+} else {
+  baseRules["react-dom/no-missing-button-type"] = "off";
+}
+
+const baseConfig = {
+  files: ["**/*.{ts,tsx}"],
+  plugins: {
+    "react-x": reactX,
+    "react-dom": reactDOM,
+  },
+  rules: baseRules,
+  languageOptions: {
+    parser: tseslint.parser,
+    parserOptions: {
+      ecmaVersion: 2022,
+      sourceType: "module",
+      ...(useStrictTyping && {
+        project: ["./tsconfig.app.json"],
+        tsconfigRootDir: new URL(".", import.meta.url).pathname,
+      }),
     },
   },
-])
+  extends: [],
+};
+
+export default tseslint.config([baseConfig]);
