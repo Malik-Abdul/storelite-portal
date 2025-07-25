@@ -25,3 +25,18 @@ npm install
 npx husky add .husky/pre-commit "npx lint-staged"
 chmod +x .husky/pre-commit
 ```
+
+### Tailwind
+
+```bash
+https://tailwindcss.com/docs/installation/using-vite
+
+npm create vite@latest my-project
+cd my-project
+npm install tailwindcss @tailwindcss/vite
+vite.config.ts
+import tailwindcss from '@tailwindcss/vite'
+ plugins: [
+    tailwindcss(),
+  ],
+```
