@@ -1,7 +1,12 @@
+import { fileURLToPath } from "node:url";
+import path from "node:path";
+
 import "dotenv/config";
 import tseslint from "typescript-eslint";
 import reactX from "eslint-plugin-react-x";
 import reactDOM from "eslint-plugin-react-dom";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // const useStrictTyping = true;
 const useStrictTyping = process.env.STRICT_TYPING === "true";
@@ -30,7 +35,7 @@ const baseConfig = {
       ecmaVersion: 2022,
       sourceType: "module",
       ...(useStrictTyping && {
-        project: ["./tsconfig.app.json"],
+        project: path.resolve(__dirname, "tsconfig.app.json"),
         tsconfigRootDir: new URL(".", import.meta.url).pathname,
       }),
     },
