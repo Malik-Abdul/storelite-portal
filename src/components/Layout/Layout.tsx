@@ -1,11 +1,12 @@
 import Header from "../UI/Header";
 import PageContent from "../../routes/PageContent";
+import { Fragment } from "react/jsx-runtime";
 function Layout() {
   return (
-    <div>
+    <Fragment>
       <Header />
       <PageContent />
-    </div>
+    </Fragment>
   );
 }
 export default Layout;
