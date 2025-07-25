@@ -9,6 +9,6 @@ Currently, two official plugins are available:
 
 ## installation
 
-- Updated ESLint configuration
+- ESLint configuration
 - Configure Husky for pre commit
-- Installed Tailwindcss
+- Tailwindcss configuration
