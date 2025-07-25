@@ -1,4 +1,4 @@
-#root {
+/* #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
@@ -39,4 +39,27 @@
 
 .read-the-docs {
   color: #888;
+} */
+
+/* Self---------------- */
+
+.top-menu {
+  /* background-image: linear-gradient(to bottom right, #041527, #233d64); */
+  /* border-bottom: 2px solid #233d64; */
+
+  /* background-image: linear-gradient(to bottom right, #000000, #000000); */
+  /* background-color: #000000; */
+  border-bottom: 0.5px solid #ffffff;
+  padding: 25px 0px;
+}
+.top-eachNave {
+  padding: 8px;
+  margin: 10px;
+  /* color: rgb(44 78 134); */
+  color: #ffffff;
+  text-decoration: none;
+}
+.top-eachNave.active {
+  color: rgb(198, 45, 72);
+  text-decoration: none;
 }
